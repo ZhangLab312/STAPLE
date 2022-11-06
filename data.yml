@@ -1,0 +1,25 @@
+cell_list:
+  - A549
+  - GM12878
+  - HepG2
+  - K562
+
+tf_list:
+  - CTCF
+  - GABPA
+  - JunD
+  - REST
+  - USF2
+gene_map: {'A': [1, 0, 0, 0],
+           'C': [0, 1, 0, 0],
+           'G': [0, 0, 1, 0],
+           'T': [0, 0, 0, 1],
+           'N': [0, 0, 0, 0]}
+
+single_cell_list:
+  - BJ
+  - GM_TNFa6h
+  - LMPP-Frozen
+  - PB1022-mono
+  - SU353-LSC
+  - TF1
