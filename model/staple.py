@@ -3,7 +3,7 @@ import torch
 import torch.nn.functional as F
 
 from model.attention import Attention
-from model.extract_dnase import ExtractDnase
+from model.extract_atac import ExtractATAC
 from model.extract_inv import ExtractInv
 
 
@@ -15,7 +15,7 @@ class Staple(nn.Module):
         super(Staple, self).__init__()
         self.multy_task = multy_task
         self.extract_inv = ExtractInv()
-        self.extract_DNaseseq = ExtractDnase()
+        self.extract_ATAC = ExtractATAC()
 
         self.Dense_TF = nn.Sequential(
             nn.Flatten(start_dim=1),
@@ -46,7 +46,7 @@ class Staple(nn.Module):
         feature_DNA = self.extract_inv(input_DNA)
         feature_DNA = self.maxpool1(feature_DNA)
 
-        feature_Dnase = self.extract_DNaseseq(input_Dnase)
+        feature_Dnase = self.extract_ATAC(input_Dnase)
         feature_Dnase = self.maxpool2(feature_Dnase)
 
         feature_DNA = self.han_model(feature_DNA)

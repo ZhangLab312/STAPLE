@@ -11,13 +11,13 @@ def conv_relu_bn(in_=1, out_=120, kernel_size=3, stride=1):
     )
 
 
-class ExtractDnase(nn.Module):
+class ExtractATAC(nn.Module):
     """
     This is the feature extraction module of Dnase signal
     """
 
     def __init__(self):
-        super(ExtractDnase, self).__init__()
+        super(ExtractATAC, self).__init__()
         self.branch_1 = conv_relu_bn(kernel_size=9)
         self.branch_2 = nn.Conv1d(in_channels=1, out_channels=120, kernel_size=7, padding=3)
         self.maxpool = nn.MaxPool1d(kernel_size=3, padding=1, stride=1)
